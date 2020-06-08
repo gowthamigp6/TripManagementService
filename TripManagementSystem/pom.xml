@@ -26,7 +26,7 @@
 		<module>src/TripService</module>
 		<module>src/AuthService</module>
 		<module>src/zuulserver</module>
-		<module>src/ConfigServer</module>
+		<!-- <module>src/ConfigServer</module> -->
 	</modules>
 	
 	<build>
