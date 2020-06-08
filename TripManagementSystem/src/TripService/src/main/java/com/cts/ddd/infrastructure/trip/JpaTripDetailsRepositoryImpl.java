@@ -17,18 +17,18 @@ public class JpaTripDetailsRepositoryImpl implements TripDetailsRepository {
 
 	@Override
 	public Iterable<TripDetails> getAllTripDetails() {
-		LookupOperation lookup = LookupOperation.newLookup().from("cars").localField("carsrefs._id").foreignField("_id")
-				.as("cars");
-
-		AggregationResults<Person> result = jpaTripDetailsRepository.aggregate(
-				Aggregation.newAggregation(lookup, Aggregation.match(Criteria.where("cars.color").is(Color.RED.toString()))), "people",
-				Person.class);
-
-		AggregationResults<TripDetails> groupResults
-		= mongoTemplate.aggregate(agg, User.class, HostingCount.class);
-	List<TripDetails> result = groupResults.getMappedResults();
-	
-		return result.getMappedResults();
+//		LookupOperation lookup = LookupOperation.newLookup().from("cars").localField("carsrefs._id").foreignField("_id")
+//				.as("cars");
+//
+//		AggregationResults<Person> result = jpaTripDetailsRepository.aggregate(
+//				Aggregation.newAggregation(lookup, Aggregation.match(Criteria.where("cars.color").is(Color.RED.toString()))), "people",
+//				Person.class);
+//
+//		AggregationResults<TripDetails> groupResults
+//		= mongoTemplate.aggregate(agg, User.class, HostingCount.class);
+//	List<TripDetails> result = groupResults.getMappedResults();
+//	
+//		return result.getMappedResults();
 		
 		Iterable<TripDetails> tripDetails = null;
 		try {
