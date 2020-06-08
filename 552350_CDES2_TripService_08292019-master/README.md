@@ -1,1 +1,0 @@
-This project is as part of CDE S2 program
