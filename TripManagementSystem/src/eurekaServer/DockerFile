@@ -1,0 +1,5 @@
+FROM openjdk
+MAINTAINER Piotr Minkowski <piotr.minkowski@gmail.com>
+ADD target/eurekaServer-1.0.jar eurekaServer-1.0.jar
+ENTRYPOINT ["java", "-jar", "/eurekaServer-1.0.jar"]
+EXPOSE 8761
