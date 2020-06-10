@@ -1,0 +1,4 @@
+FROM amazoncorretto:8
+ADD target/zuulserver-1.0-spring-boot.jar zuulserver.jar
+ENTRYPOINT ["java", "-jar", "/zuulserver.jar"]
+EXPOSE 8082
