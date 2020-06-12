@@ -8,7 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
-import org.springframework.cloud.openfeign.EnableFeignClients;
+//import org.springframework.cloud.openfeign.EnableFeignClients;
 
 import com.cts.ddd.application.EmployeeRegistrationService;
 import com.cts.ddd.application.TripService;
@@ -24,7 +24,7 @@ import com.cts.ddd.domain.user.User;
 
 @SpringBootApplication
 @EnableCircuitBreaker
-@EnableFeignClients
+//@EnableFeignClients
 public class DddApplication implements CommandLineRunner {
 
 	@Autowired
@@ -47,7 +47,7 @@ public class DddApplication implements CommandLineRunner {
 		Vehicle vehicle = new Vehicle();
 		vehicle.setSeater(Integer.valueOf("4"));
 		vehicle.setVehicleType("Car");
-		;
+		
 		vehicle.setTravelCost(new BigDecimal("5000.00"));
 
 		EmployeeRegistration emp = new EmployeeRegistration();

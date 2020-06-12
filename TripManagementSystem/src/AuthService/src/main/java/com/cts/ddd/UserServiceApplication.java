@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration;
+import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 
 import com.cts.ddd.application.UserService;
 import com.cts.ddd.domain.user.Address;
@@ -12,6 +14,7 @@ import com.cts.ddd.domain.user.FullName;
 import com.cts.ddd.domain.user.User;
 
 @SpringBootApplication
+//(exclude = {MongoAutoConfiguration.class, MongoDataAutoConfiguration.class})
 public class UserServiceApplication implements CommandLineRunner {
 
 	@Autowired

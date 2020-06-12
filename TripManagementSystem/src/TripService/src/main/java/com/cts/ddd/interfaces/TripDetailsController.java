@@ -39,8 +39,10 @@ public class TripDetailsController {
 	@GetMapping(value = "/tripDetails/get", headers = "Accept=application/json")
 	public @ResponseBody List<TripDetailsDTO> getAllTripDetails() {
 		Iterable<TripDetails> tripDetailsList = tripService.getAllTripDetails();
+		System.out.println(tripDetailsList);
 		List<TripDetailsDTO> tripDetailsDTOList = new ArrayList<TripDetailsDTO>();
 		for (TripDetails tripDetails : tripDetailsList) {
+			System.out.println(tripDetailsConvertor.convert(tripDetails));
 			tripDetailsDTOList.add((TripDetailsDTO) tripDetailsConvertor.convert(tripDetails));
 		}
 		System.out.println(tripDetailsDTOList);

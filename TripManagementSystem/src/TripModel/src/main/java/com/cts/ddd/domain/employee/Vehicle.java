@@ -1,12 +1,11 @@
 package com.cts.ddd.domain.employee;
 
 import java.math.BigDecimal;
-import org.apache.commons.lang.builder.EqualsBuilder;
-import com.cts.ddd.domain.shared.ValueObject;
+
 import lombok.Data;
 
 @Data
-public class Vehicle implements ValueObject<Vehicle> {
+public class Vehicle  {
 
 	private static final long serialVersionUID = 1L;
 
@@ -25,15 +24,5 @@ public class Vehicle implements ValueObject<Vehicle> {
 		this.travelCost = travelCost;
 	}
 
-
-
-	@Override
-	public boolean sameValueAs(Vehicle other) {
-		 return other != null && new EqualsBuilder().
-			      append(this.vehicleType, other.vehicleType).
-			      append(this.seater, other.seater).
-			      append(this.travelCost, other.travelCost).
-			      isEquals();
-	}
 	
 }
