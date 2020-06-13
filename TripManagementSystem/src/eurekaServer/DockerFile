@@ -1,4 +1,0 @@
-FROM amazoncorretto:8
-ADD target/eurekaServer-1.0-spring-boot.jar eurekaServer.jar
-ENTRYPOINT ["java", "-jar", "/eurekaServer.jar"]
-EXPOSE 8761
