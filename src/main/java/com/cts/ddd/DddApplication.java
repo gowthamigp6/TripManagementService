@@ -28,7 +28,7 @@ import com.cts.ddd.domain.user.User;
 @EnableFeignClients
 public class DddApplication implements CommandLineRunner {
 
-	private final static Logger LOGGER = Logger.getLogger(DddApplication.class.getName());
+	private final Logger logger = Logger.getLogger(DddApplication.class.getName());
 	
 	@Autowired
 	private EmployeeRegistrationService service;
@@ -74,9 +74,9 @@ public class DddApplication implements CommandLineRunner {
 		
 		EmployeeRegistration empReg = service.registerVehicle(emp);
 		if (empReg != null) {
-			LOGGER.info("EmployeeRegistration Saved Successfully");
+			logger.info("EmployeeRegistration Saved Successfully");
 		} else {
-			LOGGER.info("EmployeeRegistration Saved not Successfully");
+			logger.info("EmployeeRegistration Saved not Successfully");
 		}
 		
 		TripDetails tripDetails = new TripDetails();
@@ -93,9 +93,9 @@ public class DddApplication implements CommandLineRunner {
 		
 		TripDetails trip = tripService.saveTripDetails(tripDetails);
 		if (trip != null) {
-			LOGGER.info("TripDetails Saved Successfully");
+			logger.info("TripDetails Saved Successfully");
 		} else {
-			LOGGER.info("TripDetails Saved not Successfully");
+			logger.info("TripDetails Saved not Successfully");
 		}
 	}
 }
