@@ -29,7 +29,7 @@ public class TripDetailsController {
 	private TripDetailsConvertor tripDetailsConvertor;
 
 	public List<TripDetailsDTO> fallback() {
-		return new ArrayList<TripDetailsDTO>();
+		return new ArrayList<>();
 	}
 
 	@HystrixCommand(fallbackMethod = "fallback")

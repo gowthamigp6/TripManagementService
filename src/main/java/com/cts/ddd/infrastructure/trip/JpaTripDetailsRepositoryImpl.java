@@ -8,7 +8,7 @@ import com.cts.ddd.infrastructure.TripDetailsRepository;
 
 public class JpaTripDetailsRepositoryImpl implements TripDetailsRepository {
 
-	private final  Logger LOGGER = Logger.getLogger(JpaTripDetailsRepositoryImpl.class.getName());
+	private final  Logger logger = Logger.getLogger(JpaTripDetailsRepositoryImpl.class.getName());
 	
 	@Autowired
 	private JpaTripDetailsRepository jpaTripDetailsRepository;
@@ -24,9 +24,9 @@ public class JpaTripDetailsRepositoryImpl implements TripDetailsRepository {
 		try {
 			tripDetails = jpaTripDetailsRepository.findAll();
 		}catch(Exception e) {
-			LOGGER.severe(e.getMessage());
+			logger.severe(e.getMessage());
 		}
-		LOGGER.info("-------------"+tripDetails);
+		logger.info("-------------"+tripDetails);
 		return tripDetails;
 	}
 

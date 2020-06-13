@@ -12,9 +12,8 @@ import com.fasterxml.jackson.databind.util.Converter;
 @Component
 public class TripDetailsConvertor implements Converter {
 
-	private final  Logger LOGGER = Logger.getLogger(TripDetailsConvertor.class.getName());
-	
-	
+	private final Logger logger = Logger.getLogger(TripDetailsConvertor.class.getName());
+
 	@Override
 	public Object convert(Object value) {
 
@@ -25,9 +24,10 @@ public class TripDetailsConvertor implements Converter {
 			TripDetails tripDetails = (TripDetails) value;
 			TripDetailsDTO tripDetailsDTO = new TripDetailsDTO();
 			try {
-				
-				if(tripDetails.getTravelDate()!=null)
-				tripDetailsDTO.setTravelDate(tripDetails.getTravelDate());
+
+				if (tripDetails.getTravelDate() != null) {
+					tripDetailsDTO.setTravelDate(tripDetails.getTravelDate());
+				}
 
 				if (tripDetails.getRegistration() != null) {
 					tripDetailsDTO.setVehicleNo(tripDetails.getRegistration().getVehicleNo());
@@ -50,7 +50,7 @@ public class TripDetailsConvertor implements Converter {
 					tripDetailsDTO.setCustomerName(tripDetails.getUser().getFullName().getFirstName());
 				}
 			} catch (Exception e) {
-				LOGGER.severe(e.getMessage());
+				logger.severe(e.getMessage());
 			}
 			return tripDetailsDTO;
 		}

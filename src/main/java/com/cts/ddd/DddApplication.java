@@ -36,7 +36,7 @@ public class DddApplication implements CommandLineRunner {
 	@Autowired
 	private TripService tripService;
 
-	public static void main(String[] args) {
+	public static void main(String... args) {
 		SpringApplication.run(DddApplication.class, args);
 	}
 
