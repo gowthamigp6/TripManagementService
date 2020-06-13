@@ -5,7 +5,6 @@ import java.util.logging.Logger;
 import org.springframework.stereotype.Component;
 
 import com.cts.ddd.domain.trip.TripDetails;
-import com.cts.ddd.infrastructure.trip.JpaTripDetailsRepositoryImpl;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.fasterxml.jackson.databind.util.Converter;
@@ -13,7 +12,7 @@ import com.fasterxml.jackson.databind.util.Converter;
 @Component
 public class TripDetailsConvertor implements Converter {
 
-	private final static Logger LOGGER = Logger.getLogger(TripDetailsConvertor.class.getName());
+	private final  Logger LOGGER = Logger.getLogger(TripDetailsConvertor.class.getName());
 	
 	
 	@Override

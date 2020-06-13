@@ -14,11 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cts.ddd.application.TripService;
 import com.cts.ddd.domain.trip.TripDetails;
 import com.cts.ddd.interfaces.dto.TripDetailsConvertor;
-//import com.cts.ddd.domain.user.User;
 import com.cts.ddd.interfaces.dto.TripDetailsDTO;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-
-//import javax.inject.Inject;
 
 @RibbonClient(name = "trip-service")
 @CrossOrigin(allowedHeaders = "*", origins = "*")
@@ -39,37 +36,30 @@ public class TripDetailsController {
 	@GetMapping(value = "/tripDetails/get", headers = "Accept=application/json")
 	public @ResponseBody List<TripDetailsDTO> getAllTripDetails() {
 		Iterable<TripDetails> tripDetailsList = tripService.getAllTripDetails();
-		System.out.println(tripDetailsList);
-		List<TripDetailsDTO> tripDetailsDTOList = new ArrayList<TripDetailsDTO>();
+		List<TripDetailsDTO> tripDetailsDTOList = new ArrayList<>();
 		for (TripDetails tripDetails : tripDetailsList) {
-			System.out.println(tripDetailsConvertor.convert(tripDetails));
 			tripDetailsDTOList.add((TripDetailsDTO) tripDetailsConvertor.convert(tripDetails));
 		}
-		System.out.println(tripDetailsDTOList);
 		return tripDetailsDTOList;
 	}
 
 	@GetMapping(value = "/tripDetails/customer/{userId}", headers = "Accept=application/json")
 	public @ResponseBody List<TripDetailsDTO> getCustomerTripDetails(@PathVariable("userId") String userId) {
 		Iterable<TripDetails> tripDetailsList = tripService.getCustomerTripDetails(userId);
-		List<TripDetailsDTO> tripDetailsDTOList = new ArrayList<TripDetailsDTO>();
-		
+		List<TripDetailsDTO> tripDetailsDTOList = new ArrayList<>();
 		for (TripDetails tripDetails : tripDetailsList) {
-			
 			tripDetailsDTOList.add((TripDetailsDTO) tripDetailsConvertor.convert(tripDetails));
 		}
-		System.out.println(tripDetailsDTOList);
 		return tripDetailsDTOList;
 	}
 
 	@GetMapping(value = "/tripDetails/employee/{userId}", headers = "Accept=application/json")
 	public @ResponseBody List<TripDetailsDTO> getEmployeeTripDetails(@PathVariable("userId") String userId) {
 		Iterable<TripDetails> tripDetailsList = tripService.getEmployeeTripDetails(userId);
-		List<TripDetailsDTO> tripDetailsDTOList = new ArrayList<TripDetailsDTO>();
+		List<TripDetailsDTO> tripDetailsDTOList = new ArrayList<>();
 		for (TripDetails tripDetails : tripDetailsList) {
 			tripDetailsDTOList.add((TripDetailsDTO) tripDetailsConvertor.convert(tripDetails));
 		}
-		System.out.println(tripDetailsDTOList);
 		return tripDetailsDTOList;
 	}
 }

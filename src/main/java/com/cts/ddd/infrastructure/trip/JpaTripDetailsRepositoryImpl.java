@@ -8,7 +8,7 @@ import com.cts.ddd.infrastructure.TripDetailsRepository;
 
 public class JpaTripDetailsRepositoryImpl implements TripDetailsRepository {
 
-	private final static Logger LOGGER = Logger.getLogger(JpaTripDetailsRepositoryImpl.class.getName());
+	private final  Logger LOGGER = Logger.getLogger(JpaTripDetailsRepositoryImpl.class.getName());
 	
 	@Autowired
 	private JpaTripDetailsRepository jpaTripDetailsRepository;
