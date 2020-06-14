@@ -1,11 +1,4 @@
 FROM amazoncorretto:8
-# forward port 80 to 8080
-echo "<VirtualHost *:80>
-ProxyRequests Off
-ProxyPass / http://localhost:8080/
-ProxyPassReverse / http://localhost:8080/
-</VirtualHost>" >> /etc/httpd/conf/httpd.conf
-
 ADD target/tripservice-1.0-spring-boot.jar tripservice.jar
 ENTRYPOINT ["java", "-Dspring.profiles.active=aws","-jar", "/tripservice.jar"]
 EXPOSE 8082
